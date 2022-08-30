@@ -1,6 +1,7 @@
 -- create a table to store the channelID and channelTitle
 CREATE TABLE IF NOT EXISTS "channel" (
     channel_id TEXT NOT NULL PRIMARY KEY,
+    playlist_id TEXT NOT NULL,
     channel_title TEXT NOT NULL
 ); 
 

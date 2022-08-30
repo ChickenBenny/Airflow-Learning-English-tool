@@ -32,9 +32,9 @@ def get_information(video: str, api_key: str):
     for info in response_playlist['items']:
         video_id = info['contentDetails'].get('videoId')
         videoId.append((channelId, video_id))
-    return channelId, channelTitle, videoId
+    return channelId, channelTitle, playListId, videoId
 
-def insert_channel(channelId, channelTitle):
+def insert_channel(channelId, playListId, channelTitle):
     connection = psycopg2.connect(
                                 database = "airflow",
                                 user = "airflow",
@@ -43,8 +43,8 @@ def insert_channel(channelId, channelTitle):
                                 port = '5432'
                             )
     cursor = connection.cursor()
-    query = f'''INSERT INTO "channel"(channel_id, channel_title) VALUES('{channelId}', '{channelTitle}')'''
-    cursor.execute(query)
+    query = f'''INSERT INTO "channel"(channel_id, playlist_id, channel_title) VALUES(%s, %s, %s)'''
+    cursor.execute(query, (channelId, playListId, channelTitle))
     connection.commit()
     cursor.close()
 
@@ -66,9 +66,9 @@ if __name__ == '__main__':
     data = ['AOIzIh6-q9A&t=547s', 'XV2H9CuQUm8', 'uLnmTXxpK0Q'] # 可以塞你想要的頻道
     token = get_api()
     for video in data:
-        channelId, channelTitle, videoId = get_information(video, token)
+        channelId, channelTitle, playListId, videoId = get_information(video, token)
         try:
-            insert_channel(channelId, channelTitle)
+            insert_channel(channelId, playListId, channelTitle)
             print(f"{channelTitle} insert complete!")
         except:
             print(f"{channelTitle} already in db!")
