@@ -19,7 +19,7 @@ POSTGRES_CONN_ID = 'database'
 
 def get_api():
     with open('/opt/airflow/dags/credentials/youtube_api.json', 'r') as fp:
-        token = json.load(fp)['token']
+        token = json.load(fp)['id']
         return token
 
 def get_channel_info():
@@ -83,7 +83,7 @@ def insert_db(ti):
                                 port = '5432'
                             )
         cursor = connection.cursor()
-        query = f'''INSERT INTO video(channel_id, video_id) VALUES(%s, %s)'''
+        query = f'''INSERT INTO video(channel_id, video_id) VALUES(%s, %s);'''
         cursor.execute(query, data)
         connection.commit()
         cursor.close()
