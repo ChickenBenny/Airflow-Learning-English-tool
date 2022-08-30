@@ -4,7 +4,7 @@
 * HackMD 版本([傳送門](https://hackmd.io/-BLvXFm3STqacYMSedyKWA?view))
 
 這是一個能幫助你學習英文的小工具，主要是使用Airflow和Python開發的。功能如下:
-1. 每日定時使用telegram推撥英文vlog讓你收看，讓你學習不間斷。
+1. 每日定時使用telegram推送英文vlog讓你收看，讓你學習不間斷。
 2. 能夠追蹤自己喜歡的英文頻道，頻道一有更新馬上幫你抓到資料庫中。
 3. 查看自己的學習紀錄，讓你成就滿滿!
 
