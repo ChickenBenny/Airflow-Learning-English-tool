@@ -20,8 +20,8 @@ $ docker exec -it webserver airflow connections add 'telegram' --conn-type 'http
 5. Have fun and play with it !!
 
 ### 簡介
-* 詳細開發過程記錄 Medium 版本 : https://medium.com/@ChickenBenny/%E5%AD%B8%E7%BF%92%E8%8B%B1%E6%96%87%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-78f8a813c7af
-* HackMD 版本 : https://hackmd.io/-BLvXFm3STqacYMSedyKWA?view
+* 詳細開發過程記錄 Medium 版本([傳送門](https://medium.com/@ChickenBenny/%E5%AD%B8%E7%BF%92%E8%8B%B1%E6%96%87%E5%B0%8F%E5%B7%A5%E5%85%B7%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-78f8a813c7af))
+* HackMD 版本([傳送門](https://hackmd.io/-BLvXFm3STqacYMSedyKWA?view))
 
 這是一個能幫助你學習英文的小工具，主要是使用Airflow和Python開發的。功能如下:
 1. 每日定時使用telegram推撥英文vlog讓你收看，讓你學習不間斷。
